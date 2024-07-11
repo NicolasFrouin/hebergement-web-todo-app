@@ -12,7 +12,9 @@ services:
       - ./data.sql:/docker-entrypoint-initdb.d/init.sql
   web:
     image: node:22
-    entrypoint: npm run start
+    command: "./script.sh"
+    tty: true
+    # stdin_open: true
     working_dir: /app
     volumes:
       - .:/app
